@@ -41,5 +41,5 @@
 
 | 平台 | 安装包 |
 |---|---|
-| Meta Quest 3 | `VRFunScriptCast-vX.Y.Z-Meta.apk` |
-| Pico | `VRFunScriptCast-vX.Y.Z-Pico.apk` |
+| Meta Quest 3 | `VRFunScriptCast-Meta.apk` |
+| Pico | `VRFunScriptCast-Pico.apk` |
