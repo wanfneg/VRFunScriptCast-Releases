@@ -1,12 +1,23 @@
 # VRFunScriptCast
 
+本项目由我个人借助 AI 工具开发。个人精力的付出、AI 工具的使用都有成本，而项目**免费**提供给大家使用。
+
+欢迎大家体验，并提出 **BUG 反馈、功能需求、优化建议**。也欢迎大家投喂白饭给大肥鱼，助力项目开发。
+
+<p align="center">
+  <img src="docs/sponsor/sponsor.jpg" alt="梗图与赞助码" width="880">
+</p>
+
+**沟通渠道**：QQ `2831691505`
+
+---
+
 **VR 版 FunScriptCast** —— Meta Quest / Pico 双平台 VR 媒体播放器与 funscript 同步应用。
 由手机版 [FunScriptCast](https://github.com/wanfneg/FunScriptCast) 移植而来：戴上头显浏览本地与局域网媒体库、观看 2D/全景/3D 视频，并让实体玩具设备（ServeU、Vorze 等遵循官方/第三方协议的产品）按 funscript 与画面精确同步。
 
 ![platforms](https://img.shields.io/badge/platform-Quest%203%20%7C%20Pico-8A2BE2) ![unity](https://img.shields.io/badge/Unity-2022.3.62t13%20(Tuanjie)-333333)
 
-> 本仓库是**安装包发布仓库**（仅 APK，不含源码，源码仓库为私有）。
-> 请在 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases) 页面下载最新版本。
+**安装包下载**：[Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases)
 
 ---
 
@@ -188,23 +199,3 @@
 - **设备连不上**：确认设备已开机、有电、未被其他手机 App 占用蓝牙；点设备胶囊重试。
 - **AI 字幕不出字**：确认 PC 端服务已启动、服务地址端口正确（默认 8756）、模型预热完成（首次加载较慢）。
 - **画面全黑或变形**：播放页切换投影 / 立体格式；播放失败会显示红色提示条。
-
----
-
-## 赞助与支持
-
-本项目由我个人借助 AI 工具开发。个人精力的付出、AI 工具的使用都有成本，而项目**免费**提供给大家使用。
-
-欢迎大家体验，并提出 **BUG 反馈、功能需求、优化建议**。也欢迎大家投喂白饭给大肥鱼，助力项目开发。
-
-<p align="center">
-  <img src="docs/sponsor/meme.jpg" alt="梗图" width="420">
-</p>
-
-<p align="center">
-  <img src="docs/sponsor/wechat.png" alt="微信赞助" width="300">
-  &nbsp;&nbsp;&nbsp;
-  <img src="docs/sponsor/alipay.jpg" alt="支付宝赞助" width="300">
-</p>
-
-**沟通渠道**：QQ `2831691505`
