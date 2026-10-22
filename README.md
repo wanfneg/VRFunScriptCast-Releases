@@ -12,82 +12,21 @@
 
 ---
 
-**VR 版 FunScriptCast** —— Meta Quest 3 上的**原生 OpenXR** VR 媒体播放器与 funscript 同步应用。
+**VR 版 FunScriptCast** —— Meta Quest 3 / PICO 4 上的**原生 OpenXR** VR 媒体播放器与 funscript 同步应用。
 不再使用 Unity：Android + Kotlin/Compose + JNI C/OpenGL ES + OpenXR 重建，播放本地与局域网媒体，
 支持 2D / 180° / 360° / 鱼眼投影、立体格式、视频透传（MR 抠像）与实体设备同步。
 
-![platforms](https://img.shields.io/badge/platform-Quest%203-8A2BE2) ![android](https://img.shields.io/badge/Android-14-3DDC84) ![native](https://img.shields.io/badge/OpenXR-native-1E90FF)
+![platforms](https://img.shields.io/badge/platform-Quest%203%20%7C%20PICO%204-8A2BE2) ![android](https://img.shields.io/badge/Android-10%2B-3DDC84) ![native](https://img.shields.io/badge/OpenXR-native-1E90FF)
 
-**安装包下载**：[Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases)（单一 `arm64` APK）
-
-> ⚠️ **1.0.x 是原生重写版，不再分 Meta / Pico 两个安装包。**
-> 1.0.0 → 1.0.10 同签名，可直接覆盖升级；从旧 Unity 版或测试 debug 版升级时，签名不同，**请先卸载旧版再安装**（应用内数据会清空）。
+**安装包下载**：[Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases)（单一 `arm64` APK，Quest / PICO 通用）
 
 ---
 
-## 版本更新
-
-### v1.0.10（2026-10-22）图标与时长修复
-
-**一、BUG修复与功能优化：**
-
-1、修复网络源（SMB / DLNA）图标左上角多出一个小圆点的问题
-2、修复播放页视频时长偶发显示不准确的问题
-
-### v1.0.9（2026-10-22）PICO 冷启动修复
-
-**一、BUG修复与功能优化：**
-
-1、修复PICO端冷启动偶发性闪退的BUG
-
-### v1.0.6（2026-10-20）字幕修复
-
-**一、BUG修复与功能优化：**
-
-1、修复同目录同名字幕加载不了的问题（本地文件名大小写；SMB / WebDAV / DLNA 网络同目录字幕）
-2、窗口播放时字幕改为内嵌在视频窗口底部，随窗口移动 / 旋转
-3、同名字幕加载后自动开启 CC（图标激活蓝色态），无需手动点击
-
-### v1.0.5（2026-10-20）播放链修复
-
-**一、BUG修复与功能优化：**
-
-1、修复部分 `_alpha` 视频不能自动切换到 Alpha 透传的问题
-2、修复切换视频后热力图仍停留在上一支脚本的问题
-3、修复热力图上下颠倒的问题
-4、修复 SMB 脚本源文件夹加载不了的问题
-5、修复重新打开联动控制时「关联主输出」勾选和滑轨显示被复位的问题，弹窗现在始终回读引擎真实状态，不再受「记住联动控制设置」开关影响
-
-**二、已知问题：**
-
-VR SPY 类片源在 Alpha 透传模式下的透明带问题：属于片源自身蒙版排布问题，Skybox 等 VR 播放器同样复现，此处暂时不做优化。
-
-### v1.0.1（2026-10-19）MR 自动识别完善
-
-- **「自动识别」真正可用**：从当前视频帧取背景主色，绿/蓝幕自动切色相键，灰/纯色背景自动切纯色键；识别结果落盘，换片/重启不丢。
-- **取样更稳**：优先取画面外圈（主体在中心时不会被主体色带偏），圆形色相统计 + 自适应容差，背景噪声大时自动放宽、干净绿幕自动收紧。
-- **失败可诊断**：没有视频帧 / GL 资源 / glReadPixels 失败会直接显示原因，不再统一等超时。
-- **修复**：旧回读读场景 FBO 导致 Flat 模式取到天空盒颜色；失败后按钮永久“正忙”；RGBA/ARGB 通道顺序错误导致蓝幕识别成红幕。
-
-### v1.0.0（2026-10-17）原生正式版
-
-- **彻底移除 Unity**：OpenXR 原生渲染 + Kotlin/Compose 真窗口面板 + ExoPlayer 解码，启动与交互链路全部重写。
-- **不再分包**：自本版起只发布一个 `arm64-v8a` APK，不再区分 `VRFunScriptCast-Meta.apk` / `VRFunScriptCast-Pico.apk`。PICO 兼容代码保留，但本版真机验收以 Quest 3 为准。
-- **脚本加载优先级**：本地视频 `同目录 → 本地脚本文件夹 → 远程脚本文件夹`；网络视频 `网络同目录 → 本地脚本文件夹 → 远程脚本文件夹`。同目录脚本不再被本地脚本文件夹抢先。
-- **播放页「浏览文件」重构**：左侧三来源栏（媒体库 / 本地文件 / 网络源）+ 右侧 `↑ 当前文件夹` + 3 列卡片网格，与主页三来源状态双向同步。
-- **播放与 UI**：90Hz 面板、热力图进度条、四弹窗（视频透传 / 联动控制 / 预设模式 / 浏览文件）、透明通道与色键抠像。
-- **脚本健壮性**：坏 JSON / 空 `.funscript` 不再触发约 30 秒的无效重试，自动回退空脚本并记录警告；网络同目录脚本只保留一条加载链。
-- **已删除**：旧 Unity 面板 OES blit、手写绘制泵、每视频重建 ExoPlayer。
-
-> 旧 Unity 版本（v1.x）的安装包与标签不再适用于 1.0.0；请以本仓库最新 Release 为准。
->
-> 完整版本说明：[`docs/release-notes-v1.0.0.md`](docs/release-notes-v1.0.0.md)
-
-## 已知限制（1.0.10）
+## 已知限制
 
 - 自动识别取的是**当前视频帧**；主体颜色接近背景、或背景本身有花纹/渐变时，识别结果只作为起点，建议用「蒙版预览」核对后再微调。
 - VR SPY 类片源在 Alpha 透传下的透明带属于片源自身蒙版排布问题，Skybox 等 VR 播放器同样复现，本版暂不优化。
-- PICO 兼容代码保留，但本版真机验收以 **Quest 3** 为准；PICO 用户请先小范围试用。
+- Quest 3 与 PICO 4 系列均已实机运行；PICO 机型/系统版本差异较大，如遇异常请附机型与日志反馈。
 - AI 字幕需要 PC 端字幕服务（默认 8756），不是头显本地离线识别。
 
 ---
@@ -132,14 +71,14 @@ VR SPY 类片源在 Alpha 透传模式下的透明带问题：属于片源自身
 
 ## 安装
 
-**要求**：Meta Quest 3（Android 12+，`arm64-v8a`）；开启开发者模式。
+**要求**：Meta Quest 3（Android 12+）或 PICO 4 / PICO 4 Ultra 等 PICO 设备（Android 10+）；`arm64-v8a`；开启开发者模式。
 
-1. 从 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases) 下载最新 APK（`VRFunScriptCast-1.0.10-arm64.apk`）。
-2. 1.0.0 可直接覆盖升级；如安装的是旧 Unity 版 / 测试版，**先卸载**（签名不同，覆盖安装会失败）。
+1. 从 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases) 下载最新 APK（文件名形如 `VRFunScriptCast-<版本>-arm64.apk`）。
+2. 同签名版本可直接覆盖升级；从旧 Unity 版或测试版升级时签名不同，**先卸载**（应用内数据会清空）。
 3. 电脑上用 SideQuest 侧载，或 adb 安装：
 
 ```powershell
-adb install -r VRFunScriptCast-1.0.10-arm64.apk
+adb install -r VRFunScriptCast-<版本>-arm64.apk
 ```
 
 首次启动会请求**存储权限**（浏览本地视频）与**蓝牙权限**（连接设备）；拒绝后对应功能不可用。
@@ -206,7 +145,7 @@ adb install -r VRFunScriptCast-1.0.10-arm64.apk
 
 ## 常见问题
 
-- **覆盖安装失败**：旧 Unity 版/测试版签名不同。卸载旧版后再安装 1.0.1；1.0.0 可直接覆盖升级。
+- **覆盖安装失败**：旧 Unity 版 / 测试版签名不同，卸载旧版后再安装本仓库最新版本；本仓库原生版之间同签名，可直接覆盖升级。
 - **看不到本地视频**：到系统设置给本应用存储权限后重进。
 - **网络源连不上**：确认头显与 NAS / PC 同局域网；核对 IP、账号密码；SMB 可先把共享名留空列出共享。
 - **DLNA 进不去**：DLNA 服务可能未启动；可在网络源页「编辑」里重新扫描 / 填描述地址。
