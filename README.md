@@ -21,11 +21,17 @@
 **安装包下载**：[Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases)（单一 `arm64` APK）
 
 > ⚠️ **1.0.x 是原生重写版，不再分 Meta / Pico 两个安装包。**
-> 1.0.0 → 1.0.6 同签名，可直接覆盖升级；从旧 Unity 版或测试 debug 版升级时，签名不同，**请先卸载旧版再安装**（应用内数据会清空）。
+> 1.0.0 → 1.0.9 同签名，可直接覆盖升级；从旧 Unity 版或测试 debug 版升级时，签名不同，**请先卸载旧版再安装**（应用内数据会清空）。
 
 ---
 
 ## 版本更新
+
+### v1.0.9（2026-10-22）PICO 冷启动修复
+
+**一、BUG修复与功能优化：**
+
+1、修复PICO端冷启动偶发性闪退的BUG
 
 ### v1.0.6（2026-10-20）字幕修复
 
@@ -70,7 +76,7 @@ VR SPY 类片源在 Alpha 透传模式下的透明带问题：属于片源自身
 >
 > 完整版本说明：[`docs/release-notes-v1.0.0.md`](docs/release-notes-v1.0.0.md)
 
-## 已知限制（1.0.6）
+## 已知限制（1.0.9）
 
 - 自动识别取的是**当前视频帧**；主体颜色接近背景、或背景本身有花纹/渐变时，识别结果只作为起点，建议用「蒙版预览」核对后再微调。
 - VR SPY 类片源在 Alpha 透传下的透明带属于片源自身蒙版排布问题，Skybox 等 VR 播放器同样复现，本版暂不优化。
@@ -121,12 +127,12 @@ VR SPY 类片源在 Alpha 透传模式下的透明带问题：属于片源自身
 
 **要求**：Meta Quest 3（Android 12+，`arm64-v8a`）；开启开发者模式。
 
-1. 从 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases) 下载最新 APK（`VRFunScriptCast-1.0.6-arm64.apk`）。
+1. 从 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases) 下载最新 APK（`VRFunScriptCast-1.0.9-arm64.apk`）。
 2. 1.0.0 可直接覆盖升级；如安装的是旧 Unity 版 / 测试版，**先卸载**（签名不同，覆盖安装会失败）。
 3. 电脑上用 SideQuest 侧载，或 adb 安装：
 
 ```powershell
-adb install -r VRFunScriptCast-1.0.6-arm64.apk
+adb install -r VRFunScriptCast-1.0.9-arm64.apk
 ```
 
 首次启动会请求**存储权限**（浏览本地视频）与**蓝牙权限**（连接设备）；拒绝后对应功能不可用。
