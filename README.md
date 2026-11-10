@@ -160,7 +160,12 @@ adb install -r VRFunScriptCast-<版本>-arm64.apk
 
 ## 反馈与赞助
 
-- BUG / 需求：QQ `2831691505`
-- 如果这个项目对你有帮助，欢迎在顶部赞助图扫码投喂大肥鱼；赞助完全自愿，不影响功能。
+- BUG / 需求：QQ `2831691505` ｜ [GitHub Issues](https://github.com/wanfneg/VRFunScriptCast/issues)
+- 播放、文件浏览、网络源（SMB / WebDAV / DLNA）、AI 字幕等**全部免费**；只有**设备联动**（BLE / T-Code / Intiface）需要激活许可证。
+- 购买激活码（一码一机，永久授权）：
+  - 中国大陆 → [爱发电（¥30，支付宝 / 微信）](https://afdian.com/item/9b0f5ddc1d111f1fa7b25400c3e377)
+  - 其他地区 → [Ko-fi（PayPal / 信用卡，$9.99）](https://ko-fi.com/s/4bcd6114c5)
+- 激活方式：头显里打开 VRFunScriptCast → 设置 → 激活，粘贴订单号 / 交易号后点「领取」即可自动激活。
+- 赞助完全自愿，不影响其它功能。
 
 **本项目免费提供，请勿倒卖安装包。**
