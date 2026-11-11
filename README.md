@@ -10,11 +10,13 @@
 
 中文 | [English](README.en.md)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/wanfneg/VRFunScriptCast-Releases)
+![Quest](https://img.shields.io/badge/Quest-3-8A2BE2)
+![PICO](https://img.shields.io/badge/PICO-4-3DDC84)
+![OpenXR](https://img.shields.io/badge/OpenXR-native-1E90FF)
 ![GitHub Repo stars](https://img.shields.io/github/stars/wanfneg/VRFunScriptCast-Releases)
 ![GitHub all releases](https://img.shields.io/github/downloads/wanfneg/VRFunScriptCast-Releases/total)
 </div>
-    <p>Android + OpenXR 原生 VR 视频播放器（Quest / PICO），非 Unity、非 WebView</p>
+    <p>Android + OpenXR 原生 VR 视频播放器（Quest / PICO）</p>
 
 <img src="docs/assets/home-library-zh.jpg" width="96%" alt="主页媒体库" />
 <br/>
@@ -63,8 +65,6 @@
   - [x] TCode / OSR 经典蓝牙 SPP 直连（OSR2 / SR6 / SSR1 等，v0.2 / v0.3 可选）
   - [x] Intiface Central 桥（Buttplug，数百种设备）
   - [x] 行程范围 / 限速 / 反转 / 狂暴模式（OC）、设备信息、WiFi 固件 OTA
-- [x] AI 字幕（需 PC 端字幕服务）
-  - [x] 语音识别 + 中文翻译，实时逐句显示
 - [x] VR 交互
   - [x] 激光指针 + 白点高亮，扳机点击，B / X 键返回
   - [x] 摇杆左右轻拨 ±10 秒跳转、按住持续快进快退；上下推动视角缩放
@@ -83,7 +83,7 @@
 
 ## 赞助与授权
 
-播放、文件浏览、网络源、AI 字幕等**全部功能永久免费**。
+播放、文件浏览、网络源等**全部功能永久免费**。
 仅「设备联动」（BLE / TCode / Intiface）需要一次性许可证：**Lifetime，一码一机，永久有效**。
 
 | 地区 | 平台 | 支付方式 | 价格 | 链接 |
@@ -93,8 +93,6 @@
 
 **激活步骤**：头显内「设置 → 激活」→ 粘贴订单号 / 交易号 → 点「领取」，自动完成激活。
 换设备或恢复出厂设置后请提交订单号申请换绑。
-
-> 许可证是诚信授权机制，不是 DRM；本项目不包含任何破解内容。
 
 <br/>
 

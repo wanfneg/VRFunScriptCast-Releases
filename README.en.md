@@ -10,11 +10,13 @@
 
 [中文](README.md) | English
 
-![GitHub repo size](https://img.shields.io/github/repo-size/wanfneg/VRFunScriptCast-Releases)
+![Quest](https://img.shields.io/badge/Quest-3-8A2BE2)
+![PICO](https://img.shields.io/badge/PICO-4-3DDC84)
+![OpenXR](https://img.shields.io/badge/OpenXR-native-1E90FF)
 ![GitHub Repo stars](https://img.shields.io/github/stars/wanfneg/VRFunScriptCast-Releases)
 ![GitHub all releases](https://img.shields.io/github/downloads/wanfneg/VRFunScriptCast-Releases/total)
 </div>
-    <p>Native OpenXR VR video player for Android (Quest / PICO) — no Unity, no WebView</p>
+    <p>Native OpenXR VR video player for Android (Quest / PICO)</p>
 
 <img src="docs/assets/home-library-en.jpg" width="96%" alt="Home library" />
 <br/>
@@ -63,8 +65,6 @@
   - [x] TCode / OSR Bluetooth SPP direct (OSR2 / SR6 / SSR1 and more; v0.2 / v0.3 selectable)
   - [x] Intiface Central bridge (Buttplug, hundreds of devices)
   - [x] Stroke range / speed limit / invert / OC mode, device info, Wi-Fi firmware OTA
-- [x] AI subtitles (requires the PC companion service)
-  - [x] Speech recognition + translation, live line-by-line display
 - [x] VR interaction
   - [x] Laser pointer with dot highlight, trigger to click, B / X to go back
   - [x] Thumbstick flick for ±10s seek, hold to fast seek; thumbstick up/down for zoom
@@ -77,13 +77,13 @@
 Get it from [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases/latest) or install from [SideQuest](https://sidequestvr.com/app/63810).
 Single `arm64` APK; same-signature builds upgrade in place.
 
-See the **[User Guide](docs/user-guide.md)** for details (known limitations / features / install / quick start / FAQ — Chinese).
+See the **[User Guide](docs/user-guide.en.md)** for details (known limitations / features / install / quick start / FAQ).
 
 <br/>
 
 ## Sponsor & License
 
-Playback, file browsing, network sources, AI subtitles — **everything is free, forever**.
+Playback, file browsing, network sources — **everything is free, forever**.
 Only **device linking** (BLE / TCode / Intiface) needs a one-time license: **lifetime, one code per headset, no subscription**.
 
 | Region | Platform | Payment | Price | Link |
@@ -93,8 +93,6 @@ Only **device linking** (BLE / TCode / Intiface) needs a one-time license: **lif
 
 **How to activate**: in-headset Settings → Activation → paste your order ID → tap Claim.
 After changing devices or factory-resetting your headset, send your order ID to get it re-bound.
-
-> The license is an honesty-based mechanism, not DRM; this project contains no cracked content.
 
 <br/>
 
