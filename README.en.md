@@ -92,7 +92,7 @@ Only **device linking** (BLE / TCode / Intiface) needs a one-time license: **lif
 **How to activate**: in-headset Settings → Activation → paste your order ID → tap Claim.
 After changing devices or factory-resetting your headset, send your order ID to get it re-bound.
 
-**ServeU (抚物) device owners**: activation is **free** if you already own a ServeU device — no license purchase needed. Add QQ `2831691505` to get your activation code.
+**ServeU (抚物) device owners**: activation is **free** — power on the device, keep it near the headset and tap "Activate via device" in Settings → Activation. It verifies automatically, no order ID needed. QQ `2831691505` remains a fallback contact.
 
 <br/>
 

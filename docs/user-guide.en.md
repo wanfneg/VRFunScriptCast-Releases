@@ -40,7 +40,8 @@ with 2D / 180° / 360° / fisheye projection, stereo layouts, video passthrough 
 - Script settings: delay adjustment, skip no-action segments, manual position
 - Device management: Bluetooth connection, stroke range / speed limit / invert / boost mode (OC), device info, Wi-Fi firmware OTA
 - Device linking (BLE / TCode / Intiface) requires a one-time activation license; playback and everything else stays free (see "Sponsor & License" in the README)
-- **ServeU (抚物) device owners activate free**: if you already own a ServeU device you don't need to buy a license — add QQ `2831691505` to get your activation code
+- **ServeU (抚物) device owners activate free**: no order ID needed — power on the device, keep it near the headset and tap "Activate via device" in Settings → Activation. Verification is automatic (once per install; app updates keep it)
+- If automatic activation fails, contact the author on QQ `2831691505`
 
 ### Library & files
 - Library shortcuts: cards for local folders and network sources, one tap to browse; scroll position is remembered per folder
@@ -140,5 +141,5 @@ Player page "Video passthrough":
 - **Network source won't connect**: make sure the headset and the NAS / PC are on the same LAN; check IP, account and password; for SMB, leave the share name empty to list shares first.
 - **DLNA won't enter**: the DLNA service may not be running; re-scan / enter the description URL via "Edit" on the network sources page.
 - **Device won't connect**: make sure the device is powered on, charged, and its Bluetooth is not occupied by another phone app; tap the device pill to retry.
-- **How do I activate device linking?** Settings → Activation → paste your Afdian order ID / Ko-fi transaction ID → tap Claim. Owners of a ServeU (抚物) device activate free — add QQ `2831691505` to get your code.
+- **How do I activate device linking?** ServeU (抚物) device → Settings → Activation → "Activate via device" (automatic); other devices → Settings → Activation → paste your Afdian order ID / Ko-fi transaction ID → tap Claim.
 - **Black or distorted picture**: switch projection / stereo format on the player page; playback failures show a red banner.
