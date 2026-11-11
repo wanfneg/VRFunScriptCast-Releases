@@ -1,158 +1,125 @@
-# VRFunScriptCast
+<div align="center">
+    <img width="200" height="200" src="docs/assets/logo.png">
+</div>
 
-**VR 版 FunScriptCast** —— Meta Quest 3 / PICO 4 上的**原生 OpenXR** VR 媒体播放器与 funscript 同步应用。
-不再使用 Unity：Android + Kotlin/Compose + JNI C/OpenGL ES + OpenXR 重建，播放本地与局域网媒体，
-支持 2D / 180° / 360° / 鱼眼投影、立体格式、视频透传（MR 抠像）与实体设备同步。
 
-![platforms](https://img.shields.io/badge/platform-Quest%203%20%7C%20PICO%204-8A2BE2) ![android](https://img.shields.io/badge/Android-10%2B-3DDC84) ![native](https://img.shields.io/badge/OpenXR-native-1E90FF)
 
-**安装包下载**：[Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases)（单一 `arm64` APK，Quest / PICO 通用）
+<div align="center">
+    <h1>VRFunScriptCast</h1>
+<div align="center">
 
----
+中文 | [English](README.en.md)
 
-## 已知限制
+![GitHub repo size](https://img.shields.io/github/repo-size/wanfneg/VRFunScriptCast-Releases)
+![GitHub Repo stars](https://img.shields.io/github/stars/wanfneg/VRFunScriptCast-Releases)
+![GitHub all releases](https://img.shields.io/github/downloads/wanfneg/VRFunScriptCast-Releases/total)
+</div>
+    <p>Android + OpenXR 原生 VR 视频播放器（Quest / PICO），非 Unity、非 WebView</p>
 
-- 自动识别取的是**当前视频帧**；主体颜色接近背景、或背景本身有花纹/渐变时，识别结果只作为起点，建议用「蒙版预览」核对后再微调。
-- VR SPY 类片源在 Alpha 透传下的透明带属于片源自身蒙版排布问题，Skybox 等 VR 播放器同样复现，本版暂不优化。
-- Quest 3 与 PICO 4 系列均已实机运行；PICO 机型/系统版本差异较大，如遇异常请附机型与日志反馈。
-- AI 字幕需要 PC 端字幕服务（默认 8756），不是头显本地离线识别。
+<img src="docs/assets/shot-player.jpg" width="32%" alt="播放页" />
+<img src="docs/assets/shot-browse.jpg" width="32%" alt="文件浏览" />
+<img src="docs/assets/shot-settings.jpg" width="32%" alt="设置" />
+<br/>
+<img src="docs/assets/shot-main.jpg" width="96%" alt="主页媒体库" />
+<br/>
+</div>
 
----
 
-## 功能总览
+<br/>
 
-### 视频播放与画面
-- 视频源：头显本地文件夹 + 局域网网络源（**SMB / WebDAV / DLNA**），统一硬解播放管线，支持缓冲重试与任意拖动
-- 投影格式：平面 / 经纬图 180° / 经纬图 360° / 鱼眼 180° / 鱼眼 190° / 镜头轮廓 200° / 镜头轮廓 220°，播放中随时切换
-- 立体格式：上下 / 左右半宽 / 左右全宽 / 单视场
-- 8 个内置虚拟场景背景，可一键切换头显真实环境透视背景
-- 视频透传（MR）：绿 / 蓝 / 中性灰 / 浅灰色键抠像 + Alpha 透明通道 + 蒙版预览，绿幕人物可叠加在真实房间中
-- 进度条以 funscript 动作热力图呈现，一眼看到"哪里有动作"
+## 适配平台
 
-### funscript / 设备同步
-- 脚本自动匹配（先命中先停）：
-  - 本地视频：**同目录同名 → 本地脚本文件夹 → 远程脚本文件夹**
-  - 网络视频：**网络同目录 → 本地脚本文件夹 → 远程脚本文件夹**
-  - 也支持在文件列表 / 浏览文件里手动点选脚本
-- 预设模式：24 种波形预设 + RANDOM 循环随机 + BOOST 狂暴加速；行程范围、速度滑条实时可调
-- 快捷动作：一键急停 / 一键爆发 / 待机缓动 / 联动控制
-- 脚本设置：延迟调整、跳过无动作段、手动位置
-- 设备管理：蓝牙连接、行程范围 / 限速 / 反转 / 狂暴模式（OC）、设备信息、WiFi 固件 OTA 升级
+- [x] Meta Quest 3（Android 14，已验收）
+- [x] PICO 4 系列（已实机运行；机型 / 系统版本差异较大，遇异常请附机型与日志反馈）
+- [x] arm64-v8a 单包，不分 Quest / Pico
 
-### AI 字幕（需 PC 端字幕服务）
-- 语音识别 + 中文翻译，实时逐句显示；识别中途先行出字，语句定稿后自动覆盖
-- 源语言支持日语 / 英语；PC 端模型预热就绪后自动继续播放
+## 功能
 
-### 媒体库与文件
-- 媒体库快捷收藏：本地文件夹与网络源卡片，一键直达；浏览位置自动记忆，从哪来回哪去
-- 文件浏览：目录 / 视频 / 脚本 / 字幕卡片，按类型图标与副行区分
-- 外挂字幕：`.srt` / `.ass` / `.ssa` 同目录同名自动加载；播放页 CC 开关
-- 三来源状态同步：主页与播放页「浏览文件」共享媒体库 / 本地文件 / 网络源位置
+- [x] 视频播放与画面
+  - [x] 投影格式：平面 / 经纬 180° / 经纬 360° / 鱼眼 180° / 鱼眼 190° / 镜头轮廓 200° / 220°，播放中随时切换
+  - [x] 立体格式：上下 / 左右半宽 / 左右全宽 / 单视场
+  - [x] VR 视角缩放：角向双射，抓握缩放不畸变
+  - [x] 倍速四档 1.0× / 1.25× / 1.5× / 2.0×，连播、上 / 下一集、失败重试
+  - [x] 进度条以 funscript 动作热力图呈现
+- [x] 视频透传（MR）
+  - [x] 绿 / 蓝 / 中性灰 / 浅灰色键抠像 + Alpha 透明通道 + 蒙版预览
+  - [x] 自动识别当前帧主色，换片 / 重启不丢
+- [x] 场景与透视
+  - [x] 8 个内置虚拟场景，一键切换头显真实环境透视
+- [x] 网络源与媒体库
+  - [x] SMB / WebDAV / DLNA 局域网直连，无需拷贝
+  - [x] 媒体库快捷收藏、浏览位置自动记忆、三来源状态同步
+  - [x] 外挂字幕 `.srt` / `.ass` / `.ssa` 同目录同名自动加载
+- [x] FunScript 同步
+  - [x] 脚本自动匹配（同目录同名 → 本地脚本文件夹 → 远程脚本文件夹）+ 手动点选
+  - [x] 24 种波形预设 + RANDOM 循环随机 + BOOST 狂暴加速；行程 / 速度滑条实时可调
+  - [x] 一键急停 / 一键爆发 / 待机缓动 / 联动控制
+- [x] 设备联动（需激活许可证）
+  - [x] BLE 蓝牙设备直连
+  - [x] TCode / OSR 经典蓝牙 SPP 直连（OSR2 / SR6 / SSR1 等，v0.2 / v0.3 可选）
+  - [x] Intiface Central 桥（Buttplug，数百种设备）
+  - [x] 行程范围 / 限速 / 反转 / 狂暴模式（OC）、设备信息、WiFi 固件 OTA
+- [x] AI 字幕（需 PC 端字幕服务）
+  - [x] 语音识别 + 中文翻译，实时逐句显示
+- [x] VR 交互
+  - [x] 激光指针 + 白点高亮，扳机点击，B / X 键返回
+  - [x] 摇杆左右轻拨 ±10 秒跳转、按住持续快进快退；上下推动视角缩放
+  - [x] grip 键按住拖动，自由移动 / 转动播放窗口
 
-### VR 交互
-- 激光指针 + 白点高亮，扳机点击，B / X 键返回
-- 摇杆左右轻拨 ±10 秒跳转、按住持续快进快退（带画面预览）；上下推动视角缩放（角向缩放，不畸变）
-- grip 键按住拖动，自由移动 / 转动播放窗口
-- 播放页控件按扳机呼出 / 收起；四弹窗互斥，底栏始终可点
+<br/>
 
----
+## 下载
 
-## 安装
+可以从 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases/latest) 下载，或从 [SideQuest](https://sidequestvr.com/app/63810) 安装。
+单一 `arm64` APK，同签名直接覆盖升级。
 
-**要求**：Meta Quest 3（Android 12+）或 PICO 4 / PICO 4 Ultra 等 PICO 设备（Android 10+）；`arm64-v8a`；开启开发者模式。
+详细用法见 **[使用手册](docs/user-guide.md)**（已知限制 / 功能总览 / 安装 / 快速上手 / 常见问题）。
 
-1. 从 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases) 下载最新 APK（文件名形如 `VRFunScriptCast-<版本>-arm64.apk`）。
-2. 同签名版本可直接覆盖升级；从旧 Unity 版或测试版升级时签名不同，**先卸载**（应用内数据会清空）。
-3. 电脑上用 SideQuest 侧载，或 adb 安装：
+<br/>
 
-```powershell
-adb install -r VRFunScriptCast-<版本>-arm64.apk
-```
+## 赞助与授权
 
-首次启动会请求**存储权限**（浏览本地视频）与**蓝牙权限**（连接设备）；拒绝后对应功能不可用。
+播放、文件浏览、网络源、AI 字幕等**全部功能永久免费**。
+仅「设备联动」（BLE / TCode / Intiface）需要一次性许可证：**Lifetime，一码一机，永久有效**。
 
----
+| 地区 | 平台 | 支付方式 | 价格 | 链接 |
+|---|---|---|---|---|
+| 中国大陆 | 爱发电 | 支付宝 / 微信 | ¥30 | https://afdian.com/item/9b0f5ddc1d111f1fa7b25400c3e377 |
+| 其他地区 | Ko-fi | PayPal / 信用卡 | $9.99 | https://ko-fi.com/s/4bcd6114c5 |
 
-## 快速上手
+**激活步骤**：头显内「设置 → 激活」→ 粘贴订单号 / 交易号 → 点「领取」，自动完成激活。
+换设备或恢复出厂设置后请提交订单号申请换绑。
 
-### 主页
+> 许可证是诚信授权机制，不是 DRM；本项目不包含任何破解内容。
 
-底栏四个入口：
+<br/>
 
-| 入口 | 内容 |
-|---|---|
-| **媒体库** | 快捷收藏：本地文件夹与网络源卡片，点开即浏览 |
-| **本地文件** | 浏览头显本地存储；顶栏可「设为本地脚本文件夹」 |
-| **网络源** | 配置 SMB / WebDAV / DLNA 的视频源与脚本源 |
-| **设置** | 延迟调整、跳过无动作、待机缓动、手动位置、设备、固件、AI 字幕、关于 |
+## 声明
 
-底栏左侧：设备连接、场景、透视；右侧：退出。
+本项目由个人出于兴趣开发；不提供、不索引、不包含任何盗版或破解内容。
+请勿倒卖安装包，搬运请注明出处。
 
-### 网络源
+感谢使用
 
-在网络源页点「添加源」或卡片「编辑」：
+<br/>
 
-- **WebDAV**：完整地址（如 `http://192.168.1.5:11501/dav`）、账号、密码
-- **SMB**：主机 IP、共享名（可留空自动列共享）、账号、密码
-- **DLNA**：点「扫描设备」选择，或手填 `description.xml` 地址
+## 致谢
 
-保存后点卡片「浏览」进入目录。视频与脚本可以来自不同协议的两个源。
+- [Khronos OpenXR-SDK](https://github.com/KhronosGroup/OpenXR-SDK)（Apache-2.0）
+- [Media3 / ExoPlayer](https://github.com/androidx/media)
+- Kotlin / Jetpack Compose
+- 等等
 
-### 播放
+<br/>
+<br/>
+<br/>
 
-- 主页点视频即播；播放页「浏览文件」可在当前来源继续换片，不回主页。
-- 连播：播完自动播同目录下一个（设置 → 跳过面板可关，默认开）；±10 秒两侧的上 / 下一集按钮无相邻视频时置灰。
-- 倍速：播放器控件顶部倍速按钮循环 1.0× / 1.25× / 1.5× / 2.0×，每次起播回到 1.0×。
-- 播放失败横幅可「重试」原样重放上次请求；未自动匹配到脚本时可手动浏览加载脚本。
-- 播放页底栏：**主页 / 浏览文件 / 视频透传 / 一键爆发 / 一键急停 / 待机缓动 / 联动控制 / 预设模式**。
-- 顶栏左侧：设备胶囊（播放中可连 / 断设备）；右侧：透视 / 场景 / CC。
-- 格式行：投影 / 立体 / AI 字幕三个胶囊；换片后按新片源重新识别。
+## Star History
 
-### 脚本加载
-
-把 `.funscript` 放在视频同目录并同名即可自动加载。也支持：
-
-1. 在「本地文件」页把某个目录设为**本地脚本文件夹**（递归索引）；
-2. 在「网络源」页配置**远程脚本源**（脚本源的文件夹）；
-3. 在播放页「浏览文件」中手动点脚本。
-
-优先级见上文「funscript / 设备同步」。网络视频的**网络同目录**始终先于本地脚本文件夹。
-
-### 设备连接
-
-主页 / 播放页点设备胶囊 → 选择设备连接。首次使用需授予蓝牙权限；设备开机且未被其他 App 占用。
-设置 → 设备信息 / 设备高级可查看固件、行程范围、限速、反转与 OC。
-
-### 视频透传（MR 抠像）
-
-播放页「视频透传」：
-
-- 模式：关闭 / 绿幕 / 蓝幕 / 中性灰 / 浅灰 / Alpha 透明通道 / 蒙版预览
-- 颜色容差、边缘羽化滑杆实时调节；「自动识别」从当前视频帧外圈取主色，自动切色相键/纯色键并落盘（换片/重启不丢）
-- 开启抠像会自动打开透视背景，真实房间从抠掉的区域透出
-- Alpha 通道适用于带 Packed-Alpha 的片源
-
----
-
-## 常见问题
-
-- **覆盖安装失败**：旧 Unity 版 / 测试版签名不同，卸载旧版后再安装本仓库最新版本；本仓库原生版之间同签名，可直接覆盖升级。
-- **看不到本地视频**：到系统设置给本应用存储权限后重进。
-- **网络源连不上**：确认头显与 NAS / PC 同局域网；核对 IP、账号密码；SMB 可先把共享名留空列出共享。
-- **DLNA 进不去**：DLNA 服务可能未启动；可在网络源页「编辑」里重新扫描 / 填描述地址。
-- **设备连不上**：确认设备开机、有电、未被其他手机 App 占用蓝牙；点设备胶囊重试。
-- **AI 字幕不出字**：确认 PC 端服务已启动、地址端口正确（默认 8756）、模型预热完成。
-- **画面全黑或变形**：播放页切换投影 / 立体格式；播放失败会显示红色提示条。
-
----
-
-## 反馈与授权
-
-- BUG / 需求：QQ `2831691505` ｜ [GitHub Issues](https://github.com/wanfneg/VRFunScriptCast/issues)
-- 播放、文件浏览、网络源（SMB / WebDAV / DLNA）、AI 字幕等**全部免费**；只有**设备联动**（BLE / TCode / Intiface）需要激活许可证。
-- 购买激活码（一码一机，永久授权）：
-  - 中国大陆 → [爱发电（¥30，支付宝 / 微信）](https://afdian.com/item/9b0f5ddc1d111f1fa7b25400c3e377)
-  - 其他地区 → [Ko-fi（PayPal / 信用卡，$9.99）](https://ko-fi.com/s/4bcd6114c5)
-- 激活方式：头显里打开 VRFunScriptCast → 设置 → 激活，粘贴订单号 / 交易号后点「领取」即可自动激活。
-
-**请勿倒卖安装包。**
+<a href="https://star-history.com/#wanfneg/VRFunScriptCast-Releases&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=wanfneg/VRFunScriptCast-Releases&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=wanfneg/VRFunScriptCast-Releases&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=wanfneg/VRFunScriptCast-Releases&type=Date" />
+ </picture>
+</a>
