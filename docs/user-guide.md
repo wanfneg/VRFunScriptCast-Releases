@@ -8,6 +8,8 @@
 
 **安装包下载**：[Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases)（单一 `arm64` APK，Quest / PICO 通用）
 
+> English version: [User Guide](user-guide.en.md)
+
 ---
 
 ## 已知限制
