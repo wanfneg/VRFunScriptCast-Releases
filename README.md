@@ -1,17 +1,5 @@
 # VRFunScriptCast
 
-本项目由我个人借助 AI 工具开发。个人精力的付出、AI 工具的使用都有成本，而项目**免费**提供给大家使用。
-
-欢迎大家体验，并提出 **BUG 反馈、功能需求、优化建议**。也欢迎大家投喂白饭给大肥鱼，助力项目开发。
-
-<p align="center">
-  <img src="docs/sponsor/sponsor.jpg" alt="梗图与赞助码" width="880">
-</p>
-
-**沟通渠道**：QQ `2831691505`
-
----
-
 **VR 版 FunScriptCast** —— Meta Quest 3 / PICO 4 上的**原生 OpenXR** VR 媒体播放器与 funscript 同步应用。
 不再使用 Unity：Android + Kotlin/Compose + JNI C/OpenGL ES + OpenXR 重建，播放本地与局域网媒体，
 支持 2D / 180° / 360° / 鱼眼投影、立体格式、视频透传（MR 抠像）与实体设备同步。
@@ -158,14 +146,13 @@ adb install -r VRFunScriptCast-<版本>-arm64.apk
 
 ---
 
-## 反馈与赞助
+## 反馈与授权
 
 - BUG / 需求：QQ `2831691505` ｜ [GitHub Issues](https://github.com/wanfneg/VRFunScriptCast/issues)
-- 播放、文件浏览、网络源（SMB / WebDAV / DLNA）、AI 字幕等**全部免费**；只有**设备联动**（BLE / T-Code / Intiface）需要激活许可证。
+- 播放、文件浏览、网络源（SMB / WebDAV / DLNA）、AI 字幕等**全部免费**；只有**设备联动**（BLE / TCode / Intiface）需要激活许可证。
 - 购买激活码（一码一机，永久授权）：
   - 中国大陆 → [爱发电（¥30，支付宝 / 微信）](https://afdian.com/item/9b0f5ddc1d111f1fa7b25400c3e377)
   - 其他地区 → [Ko-fi（PayPal / 信用卡，$9.99）](https://ko-fi.com/s/4bcd6114c5)
 - 激活方式：头显里打开 VRFunScriptCast → 设置 → 激活，粘贴订单号 / 交易号后点「领取」即可自动激活。
-- 赞助完全自愿，不影响其它功能。
 
-**本项目免费提供，请勿倒卖安装包。**
+**请勿倒卖安装包。**
