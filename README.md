@@ -1,13 +1,6 @@
 <div align="center">
     <img src="docs/assets/banner.png" width="100%" alt="VRFunScriptCast">
 </div>
-
-
-
-<div align="center">
-    <h1>VRFunScriptCast</h1>
-<div align="center">
-
 中文 | [English](README.en.md)
 
 ![Quest](https://img.shields.io/badge/Quest-3-8A2BE2)
