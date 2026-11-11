@@ -13,6 +13,7 @@
 ## 改进
 
 - **更新说明更好读**：应用内更新弹窗现在会渲染标题 / 列表 / 加粗，支持**摇杆滚动**（原来内容会被截断），并按界面语言显示中文或英文说明。
+- **激活页重排**：按钮移到输入框同一行右侧对齐，新增抚物设备免费激活入口与流程状态显示（搜索 / 连接 / 验证 / 结果逐字可见）。
 
 ## 激活说明
 
@@ -41,6 +42,7 @@
 ## Improvements
 
 - **Readable update notes**: the in-app update dialog now renders headings / lists / bold text, scrolls with the thumbstick (it used to be cut off), and shows the notes in your UI language.
+- **Activation page reworked**: buttons moved inline to the right of each input, a ServeU free-activation entry added, with visible progress states (searching / connecting / verifying / result).
 
 ## Activation
 
