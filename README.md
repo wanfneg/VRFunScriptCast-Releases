@@ -1,6 +1,11 @@
 <div align="center">
     <img src="docs/assets/banner.png" width="100%" alt="VRFunScriptCast">
 </div>
+
+
+
+<div align="center">
+
 中文 | [English](README.en.md)
 
 ![Quest](https://img.shields.io/badge/Quest-3-8A2BE2)
@@ -8,8 +13,8 @@
 ![OpenXR](https://img.shields.io/badge/OpenXR-native-1E90FF)
 ![GitHub Repo stars](https://img.shields.io/github/stars/wanfneg/VRFunScriptCast-Releases)
 ![GitHub all releases](https://img.shields.io/github/downloads/wanfneg/VRFunScriptCast-Releases/total)
-</div>
-    <p>Android + OpenXR 原生 VR 视频播放器（Quest / PICO）</p>
+
+<p>Android + OpenXR 原生 VR 视频播放器（Quest / PICO）</p>
 
 <img src="docs/assets/home-library-zh.jpg" width="96%" alt="主页媒体库" />
 <br/>

@@ -5,8 +5,6 @@
 
 
 <div align="center">
-    <h1>VRFunScriptCast</h1>
-<div align="center">
 
 [中文](README.md) | English
 
@@ -15,8 +13,8 @@
 ![OpenXR](https://img.shields.io/badge/OpenXR-native-1E90FF)
 ![GitHub Repo stars](https://img.shields.io/github/stars/wanfneg/VRFunScriptCast-Releases)
 ![GitHub all releases](https://img.shields.io/github/downloads/wanfneg/VRFunScriptCast-Releases/total)
-</div>
-    <p>Native OpenXR VR video player for Android (Quest / PICO)</p>
+
+<p>Native OpenXR VR video player for Android (Quest / PICO)</p>
 
 <img src="docs/assets/home-library-en.jpg" width="96%" alt="Home library" />
 <br/>
