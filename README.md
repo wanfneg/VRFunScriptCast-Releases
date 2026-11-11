@@ -1,5 +1,5 @@
 <div align="center">
-    <img width="200" height="200" src="docs/assets/logo.png">
+    <img src="docs/assets/banner.png" width="100%" alt="VRFunScriptCast">
 </div>
 
 
@@ -16,11 +16,15 @@
 </div>
     <p>Android + OpenXR 原生 VR 视频播放器（Quest / PICO），非 Unity、非 WebView</p>
 
-<img src="docs/assets/shot-player.jpg" width="32%" alt="播放页" />
-<img src="docs/assets/shot-browse.jpg" width="32%" alt="文件浏览" />
-<img src="docs/assets/shot-settings.jpg" width="32%" alt="设置" />
+<img src="docs/assets/home-library-zh.jpg" width="96%" alt="主页媒体库" />
 <br/>
-<img src="docs/assets/shot-main.jpg" width="96%" alt="主页媒体库" />
+<img src="docs/assets/player-zh.jpg" width="32%" alt="播放页" />
+<img src="docs/assets/player-browse-zh.jpg" width="32%" alt="文件浏览" />
+<img src="docs/assets/player-preset-zh.jpg" width="32%" alt="预设模式" />
+<br/>
+<img src="docs/assets/player-linkage-zh.jpg" width="32%" alt="联动控制" />
+<img src="docs/assets/player-devices-zh.jpg" width="32%" alt="设备连接" />
+<img src="docs/assets/player-mr-zh.jpg" width="32%" alt="视频透传" />
 <br/>
 </div>
 

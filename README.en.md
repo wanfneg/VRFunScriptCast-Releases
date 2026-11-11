@@ -1,5 +1,5 @@
 <div align="center">
-    <img width="200" height="200" src="docs/assets/logo.png">
+    <img src="docs/assets/banner.png" width="100%" alt="VRFunScriptCast">
 </div>
 
 
@@ -16,11 +16,15 @@
 </div>
     <p>Native OpenXR VR video player for Android (Quest / PICO) — no Unity, no WebView</p>
 
-<img src="docs/assets/shot-player.jpg" width="32%" alt="Player" />
-<img src="docs/assets/shot-browse.jpg" width="32%" alt="File browser" />
-<img src="docs/assets/shot-settings.jpg" width="32%" alt="Settings" />
+<img src="docs/assets/home-library-en.jpg" width="96%" alt="Home library" />
 <br/>
-<img src="docs/assets/shot-main.jpg" width="96%" alt="Home library" />
+<img src="docs/assets/player-en.jpg" width="32%" alt="Player" />
+<img src="docs/assets/player-browse-en.jpg" width="32%" alt="File browser" />
+<img src="docs/assets/player-preset-en.jpg" width="32%" alt="Preset mode" />
+<br/>
+<img src="docs/assets/player-linkage-en.jpg" width="32%" alt="Linkage control" />
+<img src="docs/assets/player-devices-en.jpg" width="32%" alt="Device linking" />
+<img src="docs/assets/player-mr-en.jpg" width="32%" alt="Video passthrough" />
 <br/>
 </div>
 
