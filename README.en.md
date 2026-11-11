@@ -86,7 +86,7 @@ Only **device linking** (BLE / TCode / Intiface) needs a one-time license: **lif
 
 | Region | Platform | Payment | Price | Link |
 |---|---|---|---|---|
-| Mainland China | Afdian | Alipay / WeChat | ¥30 | https://afdian.com/item/9b0f5ddc1d111f1fa7b25400c3e377 |
+| Mainland China | Afdian | Alipay / WeChat | ¥30 | https://afdian.com/item/92b5f30edd1c11f1ad7d52540025c377 |
 | Everywhere else | Ko-fi | PayPal / card | $9.99 | https://ko-fi.com/s/4bcd6114c5 |
 
 **How to activate**: in-headset Settings → Activation → paste your order ID → tap Claim.
