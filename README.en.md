@@ -43,17 +43,22 @@
   - [x] Projection formats: flat / equirectangular 180° / equirectangular 360° / fisheye 180° / fisheye 190° / lens-outline 200° / 220°, switchable during playback
   - [x] Stereo layouts: top-bottom / half-width SBS / full-width SBS / mono
   - [x] VR zoom: angular re-mapping, no distortion while grabbed
-  - [x] Speed presets 1.0× / 1.25× / 1.5× / 2.0×, continuous playback, previous / next episode, retry on failure
+  - [x] Speed presets 0.25× / 0.50× / 0.75× / 1.00× / 1.25× / 1.50× / 2.00×, continuous playback, previous / next episode, retry on failure
   - [x] Funscript action heatmap on the seek bar
+- [x] Flat-video enhancements
+  - [x] Halo / ambient light layers, each with its own switch and strength
+  - [x] 2D-to-3D (experimental, flat mono only; on-device inference; depth / convergence popover)
+  - [x] AV1 software fallback (arm64 / Android 13+, 8-bit SDR)
 - [x] Video passthrough (MR)
   - [x] Green / blue / neutral-gray / light-gray chroma key + alpha channel + mask preview
   - [x] Auto-detects the dominant color of the current frame; survives video change / restart
 - [x] Scenes & passthrough
-  - [x] 8 built-in virtual scenes, one tap to switch to real-environment passthrough
+  - [x] 8 built-in virtual scenes (4K ASTC / 2K WebP adaptive), one tap to switch to real-environment passthrough
 - [x] Network sources & library
   - [x] SMB / WebDAV / DLNA direct LAN streaming, no copying needed
   - [x] Library shortcuts, per-folder scroll memory, three-source state sync
-  - [x] External subtitles `.srt` / `.ass` / `.ssa` auto-loaded by same name
+  - [x] Local / network video covers, directory sort & scroll memory, per-file resume
+  - [x] External subtitles `.srt` / `.ass` / `.ssa` auto-loaded by same name; embedded MKV subtitles supported
 - [x] FunScript sync
   - [x] Script auto-matching (same-name file → local script folder → remote script folder) + manual pick
   - [x] 24 waveform presets + RANDOM shuffle + BOOST; stroke range / speed sliders in real time
@@ -62,7 +67,8 @@
   - [x] BLE toys over Bluetooth
   - [x] TCode / OSR Bluetooth SPP direct (OSR2 / SR6 / SSR1 and more; v0.2 / v0.3 selectable)
   - [x] Intiface Central bridge (Buttplug, hundreds of devices)
-  - [x] Stroke range / speed limit / invert / OC mode, device info, Wi-Fi firmware OTA
+  - [x] The Handy (FW4, BLE; beta motion, custom stroke range pending verification)
+  - [x] Stroke range / speed limit / invert / OC mode
 - [x] VR interaction
   - [x] Laser pointer with dot highlight, trigger to click, B / X to go back
   - [x] Thumbstick flick for ±10s seek, hold to fast seek; thumbstick up/down for zoom
@@ -73,7 +79,7 @@
 ## Download
 
 Get it from [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases/latest) or install from [SideQuest](https://sidequestvr.com/app/63810).
-Single `arm64` APK; same-signature builds upgrade in place.
+Single `arm64` APK; same-signature builds upgrade in place. Current **v1.6.0** (~339 MB with 4K ASTC cubemaps for 8 scenes); see Releases for the full bilingual notes.
 
 See the **[User Guide](docs/user-guide.en.md)** for details (known limitations / features / install / quick start / FAQ).
 
@@ -82,7 +88,7 @@ See the **[User Guide](docs/user-guide.en.md)** for details (known limitations /
 ## Sponsor & License
 
 Playback, file browsing, network sources — **everything is free, forever**.
-Only **device linking** (BLE / TCode / Intiface) needs a one-time license: **lifetime, one code per headset, no subscription**.
+Only **device linking** (BLE / The Handy / TCode / Intiface) needs a one-time license: **lifetime, one code per headset, no subscription**.
 
 | Region | Platform | Payment | Price | Link |
 |---|---|---|---|---|
