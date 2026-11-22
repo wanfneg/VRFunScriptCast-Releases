@@ -81,6 +81,8 @@
 可以从 [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases/latest) 下载，或从 [SideQuest](https://sidequestvr.com/app/63810) 安装。
 单一 `arm64` APK，同签名直接覆盖升级。当前 **v1.6.0**（约 339 MB，含 8 个场景的 4K ASTC 立方图）；完整中英更新说明见 Releases。
 
+- **Discord（反馈 / 测试交流）**：https://discord.com/invite/fXKaVbn4NF
+
 详细用法见 **[使用手册](docs/user-guide.md)**（已知限制 / 功能总览 / 安装 / 快速上手 / 常见问题）。
 
 <br/>

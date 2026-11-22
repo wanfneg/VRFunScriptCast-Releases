@@ -81,6 +81,8 @@
 Get it from [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases/latest) or install from [SideQuest](https://sidequestvr.com/app/63810).
 Single `arm64` APK; same-signature builds upgrade in place. Current **v1.6.0** (~339 MB with 4K ASTC cubemaps for 8 scenes); see Releases for the full bilingual notes.
 
+- **Discord (feedback / testing):** https://discord.com/invite/fXKaVbn4NF
+
 See the **[User Guide](docs/user-guide.en.md)** for details (known limitations / features / install / quick start / FAQ).
 
 <br/>
