@@ -46,30 +46,33 @@
   - [x] Speed presets 0.25× / 0.50× / 0.75× / 1.00× / 1.25× / 1.50× / 2.00×, continuous playback, previous / next episode, retry on failure
   - [x] Funscript action heatmap on the seek bar
 - [x] Flat-video enhancements
-  - [x] Halo / ambient light layers, each with its own switch and strength
-  - [x] 2D-to-3D (experimental, flat mono only; on-device inference; depth / convergence popover)
-  - [x] AV1 software fallback (arm64 / Android 13+, 8-bit SDR)
+  - [x] Halo / ambient light layers with separate switches and strength; colours follow the video edge in real time, with a soft floor contact shadow
+  - [x] 2D-to-3D (experimental, flat-projection mono only; depth and parallax estimated on the headset per frame, video never uploaded; the 3D popover adjusts Depth / Convergence or resets; **off by default**, can be auto-enabled in Settings → Playback defaults)
+  - [x] AV1 software fallback (arm64 / Android 13+, 8-bit SDR; used when the platform decoder cannot handle it)
 - [x] Video passthrough (MR)
   - [x] Green / blue / neutral-gray / light-gray chroma key + alpha channel + mask preview
   - [x] Auto-detects the dominant color of the current frame; survives video change / restart
 - [x] Scenes & passthrough
-  - [x] 8 built-in virtual scenes (4K ASTC / 2K WebP adaptive), one tap to switch to real-environment passthrough
+  - [x] Default "Citrus Orchard Clear Sky" scene is bundled; the other 7 scenes have previews and download on demand (Poly Haven CC0 HDRIs; 4K ASTC on Quest, 2K WebP fallback elsewhere); one tap to switch to real-environment passthrough
 - [x] Network sources & library
   - [x] SMB / WebDAV / DLNA direct LAN streaming, no copying needed
+  - [x] Real SMB share enumeration (custom shares included); WebDAV 302 download chains; MP4 interleaved prefetch and high-bitrate buffering
   - [x] Library shortcuts, per-folder scroll memory, three-source state sync
-  - [x] Local / network video covers, directory sort & scroll memory, per-file resume
-  - [x] External subtitles `.srt` / `.ass` / `.ssa` auto-loaded by same name; embedded MKV subtitles supported
+  - [x] Local / network video covers (cover-fill crop, in-memory cache), directory sort & scroll memory, per-file resume
+  - [x] External subtitles `.srt` / `.ass` / `.ssa` auto-loaded by same name; embedded MKV subtitles (PGS / ASS etc.) with a unified CC toggle
 - [x] FunScript sync
   - [x] Script auto-matching (same-name file → local script folder → remote script folder) + manual pick
   - [x] 24 waveform presets + RANDOM shuffle + BOOST; stroke range / speed sliders in real time
   - [x] One-tap emergency stop / boost / idle easing / linkage control
 - [x] Device linking (requires a license)
   - [x] BLE toys over Bluetooth
-  - [x] TCode / OSR Bluetooth SPP direct (OSR2 / SR6 / SSR1 and more; v0.2 / v0.3 selectable)
+  - [x] TCode / OSR Bluetooth SPP direct (OSR2 / SR6 / SSR1 and more; v0.2 / v0.3 selectable; single-axis / 4-axis / 6-axis, multi-axis is a test feature)
   - [x] Intiface Central bridge (Buttplug, hundreds of devices)
-  - [x] The Handy (FW4, BLE; beta motion, custom stroke range pending verification)
+  - [x] The Handy (FW4, BLE; motion is beta and drives the device once a script plays; default 0–100 stroke range, custom ranges pending verification)
   - [x] Stroke range / speed limit / invert / OC mode
-- [x] VR interaction
+- [x] Interface & interaction
+  - [x] Smoked-glass UI with Noto Sans SC typography; buffering / seek hints on a world-fixed hint rail
+  - [x] Settings → Controller guide: bilingual key-by-key tutorial
   - [x] Laser pointer with dot highlight, trigger to click, B / X to go back
   - [x] Thumbstick flick for ±10s seek, hold to fast seek; thumbstick up/down for zoom
   - [x] Hold grip to drag — move / rotate the playback window freely
@@ -79,7 +82,7 @@
 ## Download
 
 Get it from [Releases](https://github.com/wanfneg/VRFunScriptCast-Releases/releases/latest) or install from [SideQuest](https://sidequestvr.com/app/63810).
-Single `arm64` APK; same-signature builds upgrade in place. Current **v1.6.0** (~339 MB with 4K ASTC cubemaps for 8 scenes); see Releases for the full bilingual notes.
+Single `arm64` APK; same-signature builds upgrade in place. Current **v1.6.1** (~73 MB; one bundled scene, the other 7 downloaded on demand); see Releases for the full bilingual notes.
 
 - **Discord (feedback / testing):** https://discord.com/invite/fXKaVbn4NF
 

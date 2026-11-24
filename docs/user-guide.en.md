@@ -16,6 +16,8 @@ with 2D / 180° / 360° / fisheye projection, stereo layouts, video passthrough 
 
 - Auto-detect samples the **current video frame**; when the subject color is close to the background, or the background has patterns/gradients, treat the result as a starting point and fine-tune with the mask preview.
 - The transparent band of VR SPY-style sources under Alpha passthrough comes from the source's own mask layout — Skybox and other VR players reproduce it too; not optimized in this version.
+- 2D-to-3D only applies to **flat-projection mono** videos; 180° / 360° / fisheye and side-by-side / top-bottom stereo are not supported, and it is off by default.
+- The Handy motion is **beta**: custom stroke ranges (841) are not verified on hardware — keep the default 0–100 range and the emergency stop within reach.
 - Quest 3 and PICO 4 family have both been run on real hardware; PICO models / OS versions vary a lot — include your device model and logs when reporting issues.
 
 ---
@@ -26,9 +28,16 @@ with 2D / 180° / 360° / fisheye projection, stereo layouts, video passthrough 
 - Sources: headset local folders + LAN sources (**SMB / WebDAV / DLNA**), unified hardware-decode pipeline with buffering retry and free seeking
 - Projection formats: flat / equirectangular 180° / equirectangular 360° / fisheye 180° / fisheye 190° / lens-outline 200° / lens-outline 220°, switchable during playback
 - Stereo layouts: top-bottom / half-width SBS / full-width SBS / mono
-- 8 built-in virtual scenes, one tap to switch to the headset's real-environment passthrough
+- Seven speed presets: 0.25× / 0.50× / 0.75× / 1.00× / 1.25× / 1.50× / 2.00×, each video starts at 1.00×; continuous playback, previous / next episode, retry on failure
+- Buffering / seek hints live on a world-fixed hint rail (seek shows a picture preview)
+- 8 built-in virtual scenes (Poly Haven CC0 HDRIs with previews and fixed orientations; 4K ASTC on Quest, 2K WebP fallback elsewhere), one tap to switch to the headset's real-environment passthrough
 - Video passthrough (MR): green / blue / neutral-gray / light-gray chroma key + alpha channel + mask preview — chroma-keyed subjects can be overlaid on your real room
 - The seek bar shows a funscript action heatmap — see "where the action is" at a glance
+
+### Flat-video enhancements
+- Halo / ambient glow: two separate layers, each with its own switch and strength; colours follow the video edge in real time, with a soft floor contact shadow
+- 2D-to-3D (experimental): flat-projection mono only. Depth and parallax are estimated per frame on the headset; the video is never uploaded and no PC is needed. The 3D button in the player's top bar opens a popover with the on/off switch, Depth, Convergence and Reset. **Off by default**; enable Settings → Playback defaults → "Auto 3D for flat video" to start it automatically on flat mono videos
+- AV1 software fallback (arm64 / Android 13+, 8-bit SDR): dav1d decodes when the platform decoder cannot
 
 ### funscript / device sync
 - Script auto-matching (first hit wins):
@@ -37,19 +46,23 @@ with 2D / 180° / 360° / fisheye projection, stereo layouts, video passthrough 
   - Manual script picking in the file list / browse dialog is also supported
 - Preset mode: 24 waveform presets + RANDOM shuffle + BOOST; stroke range and speed sliders in real time
 - Quick actions: one-tap emergency stop / one-tap boost / idle easing / linkage control
-- Script settings: delay adjustment, skip no-action segments, manual position
-- Device management: Bluetooth connection, stroke range / speed limit / invert / boost mode (OC), device info, Wi-Fi firmware OTA
-- Device linking (BLE / TCode / Intiface) requires a one-time activation license; playback and everything else stays free (see "Sponsor & License" in the README)
+- Script settings: delay adjustment, skip no-action segments, manual position, script folders
+- Devices: BLE direct, TCode / OSR Bluetooth SPP direct, Intiface Central bridge, The Handy (FW4)
+  - The Handy motion is beta: once connected and a script is playing it drives the device; default 0–100 stroke range, custom ranges (841) pending verification
+- Device linking (BLE / The Handy / TCode / Intiface) requires a one-time activation license; playback and everything else stays free (see "Sponsor & License" in the README)
 - **ServeU (抚物) device owners activate free**: no order ID needed — power on the device, keep it near the headset and tap "Activate via device" in Settings → Activation. Verification is automatic (once per install; app updates keep it)
 - If automatic activation fails, contact the author on QQ `2831691505`
 
 ### Library & files
 - Library shortcuts: cards for local folders and network sources, one tap to browse; scroll position is remembered per folder
 - File browsing: directory / video / script / subtitle cards, distinguished by type icon and meta line
-- External subtitles: `.srt` / `.ass` / `.ssa` auto-loaded by same name; CC toggle on the player page
+- Covers: local / network video thumbnails (cover-fill crop, in-memory cache); directory sort and scroll memory; per-file resume
+- Subtitles: external `.srt` / `.ass` / `.ssa` auto-loaded by same name; embedded MKV subtitles (PGS / ASS etc.) render; the CC toggle controls both
 - Three-source state sync: home page and player-page "Browse files" share library / local / network positions
 
-### VR interaction
+### Interface & interaction
+- Smoked-glass UI throughout with Noto Sans SC typography
+- Settings → Controller guide: bilingual key-by-key tutorial
 - Laser pointer + dot highlight, trigger to click, B / X to go back
 - Thumbstick left/right flick for ±10s seek, hold for continuous fast seek (with picture preview); thumbstick up/down for view zoom (angular, no distortion)
 - Hold grip to drag — move / rotate the playback window freely
@@ -84,7 +97,7 @@ Four entries on the bottom bar:
 | **Library** | Shortcuts: cards for local folders and network sources, tap to browse |
 | **Local files** | Browse the headset's local storage; the top bar offers "set as local script folder" |
 | **Network sources** | Configure SMB / WebDAV / DLNA video and script sources |
-| **Settings** | Delay adjustment, skip no-action, idle easing, manual position, devices, firmware, activation, about |
+| **Settings** | Playback (delay, skip no-action, idle easing, manual position, playback defaults, script folders), Device (Intiface bridge, TCode / OSR), App (activation, controller guide, about) |
 
 Bottom bar left: device connection, scene, passthrough; right: exit.
 
@@ -102,11 +115,19 @@ After saving, tap the card's "Browse" to enter the directory. Video and script m
 
 - Tap a video on the home page to play; the player's "Browse files" switches videos within the current source without going back home.
 - Continuous playback: when a video ends, the next one in the same folder plays automatically (toggle in Settings → skip panel, on by default); the previous / next episode buttons beside ±10s grey out when there is no adjacent video.
-- Speed: the speed button on the player controls cycles 1.0× / 1.25× / 1.5× / 2.0×, resetting to 1.0× on each new video.
+- Speed: the speed chip in the player controls opens a seven-step panel (0.25× / 0.50× / 0.75× / 1.00× / 1.25× / 1.50× / 2.00×); every video starts at 1.00×.
 - The playback-failure banner offers "Retry" to replay the last request; if no script auto-matches, you can browse and load one manually.
 - Player bottom bar: **Home / Browse files / Video passthrough / Boost / Emergency stop / Idle easing / Linkage / Presets**.
 - Top bar left: device pill (connect / disconnect during playback); right: passthrough / scene / CC.
 - Format row: projection / stereo / load-script buttons; projection is re-detected for each new video.
+
+### Flat-video enhancements (glow / 2D-to-3D)
+
+Only shown for **flat-projection mono** videos, in the player's top bar:
+
+- **Halo / Ambient**: each button opens its own popover with an on/off switch and a "Light strength" slider (percentage). Colours follow the video edge in real time; Ambient is on by default, Halo is off.
+- **3D**: the button only opens the adjustment popover — the switch and sliders live inside it (same interaction as Ambient). It shows the "Experimental 3D: flat mono only, processed on this device" note, an on/off switch, Depth, Convergence and Reset. Button states: `3D…` while the model loads, `3D ✓` when ready.
+- Defaults: 3D is **off by default**; Settings → Playback defaults → "Auto 3D for flat video" is also off by default and, when enabled, starts 3D automatically on flat mono videos.
 
 ### Script loading
 
@@ -121,7 +142,7 @@ Priority is listed under "funscript / device sync" above. The network same-direc
 ### Device connection
 
 Tap the device pill on the home / player page → choose a device to connect. Grant Bluetooth permission on first use; the device must be powered on and not occupied by another app.
-Settings → Device info / Device advanced shows firmware, stroke range, speed limit, invert and OC.
+The device dialog scans / connects devices and shows status; The Handy (FW4) uses the same entry and drives the device once a script plays (motion is beta — keep the default 0–100 range). Stroke range, speed limit, invert and OC are adjusted in the linkage / preset dialogs.
 
 ### Video passthrough (MR keying)
 
@@ -142,4 +163,7 @@ Player page "Video passthrough":
 - **DLNA won't enter**: the DLNA service may not be running; re-scan / enter the description URL via "Edit" on the network sources page.
 - **Device won't connect**: make sure the device is powered on, charged, and its Bluetooth is not occupied by another phone app; tap the device pill to retry.
 - **How do I activate device linking?** ServeU (抚物) device → Settings → Activation → "Activate via device" (automatic); other devices → Settings → Activation → paste your Afdian order ID / Ko-fi transaction ID → tap Claim.
+- **How do I enable 2D-to-3D?** The top-bar "3D" button only appears for flat-projection mono videos; open its popover and switch it on, or enable Settings → Playback defaults → "Auto 3D for flat video". 180°/360°/fisheye and stereo are not supported.
+- **The Handy doesn't move**: make sure it is connected and a script is playing; motion is beta — keep the default 0–100 range and the emergency stop within reach.
+- **AV1 won't play**: the software fallback only covers arm64 / Android 13+ 8-bit SDR AV1; otherwise the platform decoder must support it.
 - **Black or distorted picture**: switch projection / stereo format on the player page; playback failures show a red banner.
